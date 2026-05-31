@@ -1706,3 +1706,89 @@ nav ul li a:hover{
         flex-direction:column;
     }
 }
+/* ==========================================================================
+   EXTRA RESPONSIVE MEDIA QUERIES (TABLET & SMARTPHONE)
+   ========================================================================== */
+
+/* --- A. PENGATURAN UNTUK TABLET / LAYAR MENENGAH (Max 900px) --- */
+@media (max-width: 900px) {
+    /* Galeri Organisasi: Tampil 2 Kolom menyamping */
+    .gallery.active {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+    }
+
+    /* Skill Grid: Tampil 2 Kolom menyamping */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+    }
+}
+
+/* --- B. PENGATURAN KHUSUS SMARTPHONE / LAYAR HP (Max 600px) --- */
+@media (max-width: 600px) {
+    
+    /* 1. TOMBOL NAVIGASI ORGANISASI (Kapsul Berjejer Menyamping) */
+    .organization-buttons {
+        flex-direction: row !important; /* Mencegah tombol menumpuk vertikal */
+        justify-content: center;
+        align-items: center;
+        gap: 6px; /* Jarak antar tombol dipersempit agar muat */
+        padding: 0 5px;
+        width: 100%;
+    }
+
+    .organization-buttons button {
+        padding: 8px 10px; /* Ukuran kotak tombol diperkecil */
+        font-size: 0.78rem; /* Font mengecil agar teks tidak pecah baris */
+        flex: 1; /* Membagi ruang tombol sama rata secara adil */
+        text-align: center;
+        white-space: nowrap; /* Mencegah teks tertekuk ke bawah */
+    }
+
+    /* 2. GALERI ORGANISASI (Tampil Ringkas 2 Kolom Menyamping) */
+    .gallery.active {
+        grid-template-columns: repeat(2, 1fr) !important; /* Mengunci 2 foto per baris */
+        gap: 12px; /* Jarak dipersempit agar proporsional */
+        padding: 5px;
+    }
+
+    .gallery-item img {
+        height: 130px; /* Tinggi gambar dibatasi agar tidak raksasa */
+    }
+
+    /* Lencana Judul Melayang Di Atas Foto */
+    .gallery-title {
+        padding: 4px 10px;
+        font-size: 0.58rem; /* Mengecilkan teks melayang agar tidak menutupi foto */
+        bottom: 12px;
+        letter-spacing: 1px;
+    }
+
+    /* 3. GRID TECH STACK / SKILLS CARD (Otomatis Tampil 2 Kolom) */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 Kartu skill per baris di HP */
+        gap: 12px !important;
+    }
+
+    .skill-card {
+        padding: 20px 15px !important; /* Mengurangi padding dalam agar hemat ruang */
+        border-radius: 16px !important; /* Melengkungkan sudut lebih tipis */
+    }
+
+    /* 4. GRID SECTON PROJECT (Otomatis Tampil 2 Kolom) */
+    /* Pastikan nama kelas container pembungkus project Anda di HTML adalah .project-grid atau .project-container */
+    .project-grid, .project-container, .project-wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* Mengunci 2 kartu project per baris */
+        gap: 12px !important;
+    }
+
+    /* 5. GRID SECTION SERTIFIKAT (Otomatis Tampil 2 Kolom) */
+    /* Pastikan nama kelas container pembungkus sertifikat Anda di HTML adalah .certificate-grid atau .certificate-container */
+    .certificate-grid, .certificate-container, .certificate-wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* Mengunci 2 kartu sertifikat per baris */
+        gap: 12px !important;
+    }
+}
