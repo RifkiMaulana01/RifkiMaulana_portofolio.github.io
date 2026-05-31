@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rifki Maulana | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<!-- SPLASH SCREEN -->
+<div id="splash">
+    <div class="splash-overlay"></div>
+    <div class="splash-content">
+        <div class="welcome-line">
+            <h1 class="text text1">Selamat</h1>
+            <h1 class="text text2">Datang</h1>
+        </div>
+        <h2 class="text text3">Portofolio</h2>
+        <h3 class="text text4">Rifki Maulana</h3>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <nav>
+        <div class="logo">Rifki<span>.</span></div>
+        <ul>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#organization">Organisasi</a></li>
+            <li><a href="#education">Pendidikan</a></li>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#certificate">Sertifikat</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-left fade-up">
+        <p class="hero-small">FRONTEND & WEBSITE DEVELOPER</p>
+        <h1>Creating Modern <br> Digital Experience <br> With Elegant Design.</h1>
+        
+        <!-- BAGIAN YANG DIUBAH -->
+        <p class="hero-desc">
+            <span class="typing-text"></span>
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#project" class="btn-primary">My Projects</a>
+            <a href="#contact" class="btn-secondary">Contact Me</a>
+        </div>
+    </div>
+    <div class="hero-right fade-in">
+        <div class="glass-card">
+            <img src="image/foto formal SMA.jpeg" alt="Profile">
+        </div>
+    </div>
+</section>
+<div class="about-container fade-up">
+    
+    <!-- Kolom Kiri: Teks Deskripsi -->
+    <div class="about-box">
+        <p>
+            Saya seorang Frontend dan Website Developer yang saat ini sedang menempuh pendidikan di
+            Politeknik Negeri Indramayu jurusan D4 Rekayasa Perangkat Lunak.
+        </p>
+        <p style="margin-top: 15px;">
+            Saya memiliki minat dalam pengembangan website modern dengan tampilan yang elegant, 
+            responsive, dan interaktif. Saya juga pernah mengerjakan beberapa project seperti sistem 
+            manajemen gudang, sistem rental PS, CRUD artikel, dan project jaringan komputer.
+        </p>
+    </div>
+
+    <!-- Kolom Kanan: Papan Statistik (Mengisi Area Kosong) -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <h2>10+</h2>
+            <p>Project Selesai</p>
+        </div>
+        <div class="stat-card">
+            <h2>5+</h2>
+            <p>Pengalaman Organisasi</p>
+        </div>
+        <div class="stat-card">
+            <h2>2+</h2>
+            <p>Tahun Pengalaman Code</p>
+        </div>
+        <div class="stat-card">
+            <h2>5+</h2>
+            <p>Sertifikat Kompetensi</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- ORGANIZATION -->
+<section class="section organization-section" id="organization">
+    <div class="section-title fade-up">
+        <p>ORGANIZATION</p>
+        <h2>Pengalaman Organisasi</h2>
+    </div>
+    <p class="organization-desc fade-up">
+        Selain fokus pada dunia teknologi dan pengembangan website, saya juga aktif dalam kegiatan organisasi dan pengembangan diri seperti pencak silat, HIMA, dan Forum Mahasiswa Bidikmisi untuk meningkatkan leadership, teamwork, dan komunikasi.
+    </p>
+    <div class="organization-wrapper fade-up">
+        <div class="organization-buttons">
+            <button class="active" onclick="showGallery('hima',this)">HIMA</button>
+            <button onclick="showGallery('silat',this)">Pencak Silat</button>
+            <button onclick="showGallery('bidikmisi',this)">Forum Bidikmisi</button>
+        </div>
+
+        <!-- GALLERY -->
+        <div class="gallery-container">
+            <!-- HIMA -->
+            <div class="gallery" id="hima">
+                <div class="gallery-item"><img src="image/Hima rpl1.jpeg"><div class="gallery-title">Kegiatan HIMA</div></div>
+                <div class="gallery-item"><img src="image/Hima rpl2.jpeg"><div class="gallery-title">Rapat Organisasi</div></div>
+                <div class="gallery-item"><img src="image/Hima rpl3.jpeg"><div class="gallery-title">Event Kampus</div></div>
+                <div class="gallery-item"><img src="image/Hima rpl4.jpeg"><div class="gallery-title">Kegiatan HIMA</div></div>
+                <div class="gallery-item"><img src="image/Hima rpl2.jpeg"><div class="gallery-title">Rapat Organisasi</div></div>
+                <div class="gallery-item"><img src="image/Hima rpl3.jpeg"><div class="gallery-title">Event Kampus</div></div>
+            </div>
+
+            <!-- SILAT -->
+            <div class="gallery active" id="silat">
+                <div class="gallery-item"><img src="image/Silat1.jpeg"><div class="gallery-title">Kejuaraan Pencak Silat</div></div>
+                <div class="gallery-item"><img src="image/Silat2.jpeg"><div class="gallery-title">Dokumentasi Lomba</div></div>
+                <div class="gallery-item"><img src="image/Silat3.jpeg"><div class="gallery-title">Prestasi Pencak Silat</div></div>
+                <div class="gallery-item"><img src="image/Silat4.jpeg"><div class="gallery-title">Kejuaraan Pencak Silat</div></div>
+                <div class="gallery-item"><img src="image/Silat2.jpeg"><div class="gallery-title">Dokumentasi Lomba</div></div>
+                <div class="gallery-item"><img src="image/Silat3.jpeg"><div class="gallery-title">Prestasi Pencak Silat</div></div>
+            </div>
+
+            <!-- BIDIKMISI -->
+            <div class="gallery" id="bidikmisi">
+                <div class="gallery-item"><img src="image/Forma1.jpeg"><div class="gallery-title">Forum Mahasiswa</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION TIMELINE SECTION -->
+<section class="section education-section" id="education">
+    <div class="section-title fade-up">
+        <p>EDUCATION</p>
+        <h2>Riwayat Sekolah</h2>
+    </div>
+    
+    <div class="timeline fade-up">
+        <div class="timeline-line"></div>
+        
+        <!-- SD 1 Karangsambung (Kiri) -->
+        <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>SDN 1 Karangsambung</h3>
+                <span class="timeline-date">2014 - 2020</span> <!-- Tahun dipindah ke bawah -->
+                <p>Tempat pertama menimba ilmu dasar, membangun landasan akademis, serta mulai aktif dalam kegiatan dasar sekolah yaitu Pramuka dan Paskibra.</p>
+            </div>
+        </div>
+
+        <!-- MTsN 3 Cirebon (Kanan) -->
+        <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>MTsN 3 Cirebon</h3>
+                <span class="timeline-date">2020 - 2023</span> <!-- Tahun dipindah ke bawah -->
+                <p>Melanjutkan pendidikan tingkat menengah pertama dengan penguatan nilai agama, sains, serta aktif dalam organisasi internal siswa. Diantaranya Ketua Marching Band MTsN 3 Cirebon dan Anggota OSIS MTsN 3 Cirebon</p>
+            </div>
+        </div>
+
+        <!-- SMAN 1 Arjawinangun (Kiri Bawah) -->
+        <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>SMAN 1 Arjawinangun</h3>
+                <span class="timeline-date">2023 - 2025</span> <!-- Tahun dipindah ke bawah -->
+                <p>Mengambil fokus penjurusan yang melatih logika, serta mulai aktif dalam kegiatan olahraga bela diri pencak silat tingkat sekolah, dan menjuarai beberapa kompetisi tingkat Nasional</p>
+            </div>
+        </div>
+
+        <!-- Politeknik Negeri Indramayu (Kanan Bawah) -->
+        <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Politeknik Negeri Indramayu</h3>
+                <span class="timeline-date">2025 - Sekarang</span> <!-- Tahun dipindah ke bawah -->
+                <p>Saat ini menempuh program D4 Rekayasa Perangkat Lunak. Fokus mendalami rekayasa web, manajemen sistem, dan aktif di organisasi HIMA, Farum Mahasiswa Bidikmisi dan Peersatuan olahraga Politeknik Negeri Indramayu</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sisa section Project, Certificate, dan Contact Anda bisa diletakkan di bawah sini -->
+
+</body>
+</html>
+
+<section class="section" id="skills">
+
+    <div class="section-title fade-up">
+
+        <p>
+            SKILLS
+        </p>
+
+        <h2>
+            Teknologi
+        </h2>
+
+    </div>
+
+    <div class="skills-grid">
+
+        <div class="skill-card fade-up">
+
+            <div class="skill-icon">
+                <i class="fa-brands fa-html5"></i>
+            </div>
+
+            <h3>HTML5</h3>
+
+            <p>
+                Struktur website modern
+                dan responsive.
+            </p>
+
+        </div>
+
+        <div class="skill-card fade-up">
+
+            <div class="skill-icon">
+                <i class="fa-brands fa-css3-alt"></i>
+            </div>
+
+            <h3>CSS3</h3>
+
+            <p>
+                Styling elegant dengan
+                animasi modern.
+            </p>
+
+        </div>
+
+        <div class="skill-card fade-up">
+
+            <div class="skill-icon">
+                <i class="fa-brands fa-js"></i>
+            </div>
+
+            <h3>JavaScript</h3>
+
+            <p>
+                Interaksi website dan
+                animasi dinamis.
+            </p>
+
+        </div>
+
+        <div class="skill-card fade-up">
+
+            <div class="skill-icon">
+                <i class="fa-brands fa-php"></i>
+            </div>
+
+            <h3>PHP</h3>
+
+            <p>
+                Backend website dan
+                sistem CRUD.
+            </p>
+
+        </div>
+
+        <div class="skill-card fade-up">
+
+            <div class="skill-icon">
+                <i class="fa-solid fa-database"></i>
+            </div>
+
+            <h3>MySQL</h3>
+
+            <p>
+                Database management
+                dan penyimpanan data.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="project">
+
+    <div class="section-title fade-up">
+
+        <p>
+            PROJECT
+        </p>
+
+        <h2>
+            My Projects
+        </h2>
+
+    </div>
+
+    <div class="project-grid">
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card fade-up">
+
+            <img src="image/Manajemen Gudang project.png"
+            alt="Project Gudang">
+
+            <div class="project-content">
+
+                <span>
+                    WEB DEVELOPMENT
+                </span>
+
+                <h3>
+                    Sistem Manajemen Gudang
+                </h3>
+
+                <p>
+
+                    Website pengelolaan stok barang
+                    dengan fitur CRUD, dashboard admin,
+                    dan responsive UI modern.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- PROJECT 2 -->
+
+        <div class="project-card fade-up">
+
+            <img src="images/project-rentalps.jpg"
+            alt="Rental PS">
+
+            <div class="project-content">
+
+                <span>
+                    WEBSITE SYSTEM
+                </span>
+
+                <h3>
+                    Sistem Rental PS
+                </h3>
+
+                <p>
+
+                    Sistem pemesanan rental PlayStation
+                    dengan manajemen booking
+                    dan data pelanggan.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- PROJECT 3 -->
+
+        <div class="project-card fade-up">
+
+            <img src="image/CRUD.png"
+            alt="CRUD Artikel">
+
+            <div class="project-content">
+
+                <span>
+                    FULL STACK
+                </span>
+
+                <h3>
+                    CRUD Artikel
+                </h3>
+
+                <p>
+
+                    Website artikel dengan fitur
+                    tambah, edit, hapus,
+                    upload gambar dan database MySQL.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- PROJECT 4 -->
+
+        <div class="project-card fade-up">
+
+            <img src="image/Topologi SMKN 1 Lelea.png"
+            alt="Jaringan">
+
+            <div class="project-content">
+
+                <span>
+                    NETWORKING
+                </span>
+
+                <h3>
+                    Project Jaringan Komputer
+                </h3>
+
+                <p>
+
+                    Perancangan topologi jaringan
+                    komputer lengkap dengan
+                    konfigurasi IP dan routing.
+
+                </p>
+
+            </div>
+
+        </div>
+
+            <div class="project-card fade-up">
+
+            <img src="image/kalkulator sederhana.png"
+            alt="Jaringan">
+
+            <div class="project-content">
+
+                <span>
+                    Kalkulator Sederhana
+                </span>
+
+                <h3>
+                    Project JavaScript
+                </h3>
+
+                <p>
+
+                    Membuat Kalkulator sederhana menggunakan JavaScript
+
+                </p>
+
+            </div>
+
+        </div>
+
+            <div class="project-card fade-up">
+
+            <img src="image/FrontEnd.png"
+            alt="Jaringan">
+
+            <div class="project-content">
+
+                <span>
+                    Tugas FrintEnd
+                </span>
+
+                <h3>
+                    Project Pemograman Web
+                </h3>
+
+                <p>
+
+                    Membuat Website Kampus menggunakan bahasa pemograman PHP dan terhubung ke Data Basw
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CERTIFICATE -->
+
+<section class="section"
+id="certificate">
+
+    <div class="section-title fade-up">
+
+        <p>
+            CERTIFICATE
+        </p>
+
+        <h2>
+            My Certificates
+        </h2>
+
+    </div>
+
+    <div class="certificate-grid">
+
+        <div class="certificate-card fade-up">
+
+            <img src="image/sertif IT cast.jpeg"
+            alt="Certificate">
+
+            <h3>
+                Seminar IT Cast
+            </h3>
+
+        </div>
+
+        <div class="certificate-card fade-up">
+
+            <img src="image/sertif stekno.jpeg"
+            alt="Certificate">
+
+            <h3>
+                Seminar Stekno
+            </h3>
+
+        </div>
+
+        <div class="certificate-card fade-up">
+
+            <img src="image/Sertifikat CodePolitan.png"
+            alt="Certificate">
+
+            <h3>
+                Webinar CodePolitan-AI
+            </h3>
+
+        </div>
+        <div class="certificate-card fade-up">
+
+            <img src="image/Sertifikat im3.png"
+            alt="Certificate">
+
+            <h3>
+                Webinar im3
+            </h3>
+
+        </div>
+
+        <div class="certificate-card fade-up">
+
+            <img src="image/sertifikat5.jpg"
+            alt="Certificate">
+
+            <h3>
+                Frontend Web Development
+            </h3>
+
+        </div>
+
+        <div class="certificate-card fade-up">
+
+            <img src="image/sertifikat6.jpg"
+            alt="Certificate">
+
+            <h3>
+                Leadership & Organization
+            </h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECTION KONTAK & MASUKAN -->
+<section class="section contact-section" id="contact">
+
+    <div class="section-title fade-up">
+        <p>FEEDBACK & CONTACT</p>
+        <h2>Hubungi Saya</h2>
+    </div>
+
+    <!-- BOX UTAMA FORMULIR KESAN PESAN -->
+    <div class="feedback-container fade-up">
+        <form id="feedbackForm" class="pure-form">
+            <h3>Beri Kesan & Pesan</h3>
+            <p class="form-desc-text">Silakan tinggalkan masukan atau pesan Anda untuk portofolio ini.</p>
+
+            <div class="form-field">
+                <input type="text" id="formName" placeholder="Nama Anda" required>
+            </div>
+
+            <div class="form-field">
+                <input type="email" id="formEmail" placeholder="Email Anda" required>
+            </div>
+
+            <div class="form-field">
+                <textarea id="formMessage" rows="4" placeholder="Tulis kesan, pesan, atau kritik saran Anda di sini..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-form-submit">
+                Kirim Masukan <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+
+    <!-- TOMBOL SOSIAL MEDIA DI BAWAH FORM -->
+    <div class="social-wrapper fade-up">
+        <p class="social-title-text">Atau Hubungi Langsung Melalui:</p>
+        <div class="social-buttons-flex">
+            <!-- Email langsung diarahkan ke email Anda -->
+            <a href="mailto:rm932791@gmail.com" class="btn-social email">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <!-- Ganti dengan nomor WhatsApp Anda jika diperlukan, contoh: https://wa.me -->
+            <a href="https://wa.me9" target="_blank" class="btn-social whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <!-- Ganti dengan link profil LinkedIn Anda -->
+            <a href="https://linkedin.com" target="_blank" class="btn-social linkedin">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </div>
+
+    <!-- COPYRIGHT FOOTER -->
+    <footer class="bottom-footer">
+        <p>&copy; 2026 Rifki Maulana. All Rights Reserved.</p>
+    </footer>
+
+</section>
+
+<!-- Cukup panggil script.js Anda di sini (SDK EmailJS yang error sudah dihapus) -->
+<script src="script.js"></script>
+
+</body>
+</html>
