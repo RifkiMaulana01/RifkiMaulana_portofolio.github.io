@@ -97,161 +97,162 @@ body::after{
     pointer-events:none;
 }
 
-/* SPLASH */
+/* ==========================================================================
+   UPDATED CINEMATIC SPLASH SCREEN STYLE
+   ========================================================================== */
 
-#splash{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100vh;
-
-    background:#050816;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow:hidden;
-
-    z-index:999999;
-
-    transition:1s ease;
+#splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #050816;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 999999;
+    
+    /* ⚠️ WAJIB ADA AGAR LAYAR HITAM BISA MEMUDAR HALUS */
+    opacity: 1;
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.splash-overlay{
-
-    position:absolute;
-
-    width:600px;
-    height:600px;
-
-    background:
-    linear-gradient(to right,#00e5ff,#a855f7);
-
-    filter:blur(180px);
-
-    opacity:0.4;
-
-    animation:pulse 3s infinite alternate;
+.splash-overlay {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(to right, #00e5ff, #a855f7);
+    filter: blur(180px);
+    opacity: 0.3; /* Sedikit diturunkan agar teks lebih kontras terbaca */
+    animation: pulse 3s infinite alternate;
 }
 
-.splash-content{
-
-    position:relative;
-
-    text-align:center;
-
-    z-index:2;
+.splash-content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
 }
 
-/* SPLASH TEXT */
-
-.welcome-line{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
+/* --- SPLASH TEXT GRID SYSTEM --- */
+.welcome-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
 }
 
-.text{
-
-    opacity:0;
-
-    animation-duration:1.2s;
-
-    animation-fill-mode:forwards;
-
-    animation-timing-function:
-    cubic-bezier(0.19,1,0.22,1);
+/* Base style umum pengisian animasi */
+.text {
+    opacity: 0;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1); /* Kurva pengereman super halus */
 }
 
-.text1{
-
-    transform:
-    translateX(250px)
-    scale(0.8);
-
-    animation-name:slideRight;
-
-    animation-delay:0.3s;
+/* 🌟 KATA 1: 'Selamat' Meluncur Mulus dari Kiri */
+.text1 {
+    font-size: 85px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: white;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    
+    transform: translateX(-150px); /* Mulai dari kiri */
+    animation-name: splashSlideLeft;
+    animation-delay: 0.3s;
 }
 
-.text2{
-
-    transform:
-    translateX(-250px)
-    scale(0.8);
-
-    animation-name:slideLeft;
-
-    animation-delay:0.3s;
+/* 🌟 KATA 2: 'Datang' Meluncur Mulus dari Kanan */
+.text2 {
+    font-size: 85px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: white;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    
+    transform: translateX(150px); /* Mulai dari kanan */
+    animation-name: splashSlideRight;
+    animation-delay: 0.3s; /* Barengan dengan kata pertama agar tabrakan di tengah estetik */
 }
 
-.text3{
-
-    transform:
-    translateY(80px);
-
-    animation-name:fadeUp;
-
-    animation-delay:1.3s;
+/* 🌟 KATA 3: 'Portofolio' Muncul Memudar Naik dari Bawah */
+.text3 {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #94a3b8;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    
+    transform: translateY(30px);
+    animation-name: splashFadeUp;
+    animation-delay: 1.2s; /* Muncul setelah Selamat Datang stabil di tengah */
 }
 
-.text4{
-
-    transform:
-    scale(0.5);
-
-    animation-name:zoomFade;
-
-    animation-delay:2.3s;
+.text4 {
+    animation-delay: 1.5s;
+    margin-top: 10px;
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    
+    /* Menggunakan warna putih bersih dengan kilauan penuh */
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    
+    transform: translateY(20px);
+    animation-name: splashFadeUp;
+    animation-delay: 1.6s; /* Gong akhir layar pembuka */
 }
 
-.text1,
-.text2{
+/* ==========================================================================
+   KEYFRAMES LOGIKA ANIMASI (DIJAMIN SMOOTH TANPA MELOMPAT)
+   ========================================================================== */
 
-    font-size:85px;
-
-    font-weight:700;
-
-    letter-spacing:3px;
+/* Animasi Meluncur dari Kiri ke Tengah */
+@keyframes splashSlideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-150px) scale(0.9);
+        filter: blur(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0);
+    }
 }
 
-.text3{
-
-    margin-top:20px;
-
-    font-size:28px;
-
-    color:#cfcfcf;
-
-    letter-spacing:10px;
+/* Animasi Meluncur dari Kanan ke Tengah */
+@keyframes splashSlideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(150px) scale(0.9);
+        filter: blur(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0);
+    }
 }
 
-.text4{
-
-    margin-top:15px;
-
-    font-size:52px;
-
-    font-weight:700;
-
-    background:
-    linear-gradient(to right,#00e5ff,#a855f7);
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
+/* Animasi Memudar Naik dari Bawah */
+@keyframes splashFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(25px);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
 }
 
 /* NAVBAR */
@@ -449,49 +450,52 @@ nav ul li a:hover{
     0 10px 30px rgba(0,229,255,0.2);
 }
 
-/* HERO IMAGE */
-
-.hero-right{
-
-    flex:1;
-
-    display:flex;
-    justify-content:center;
-
-    opacity:0;
-
-    transform:translateX(-120px);
-
-    animation:heroLeft 1.5s forwards;
-
-    animation-delay:5s;
-}
-/* --- REFRESH HERO SECTION --- */
-
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 100vh;
-    padding: 0 10%;
-    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); /* Background gradient gelap yang mewah */
-    overflow: hidden;
+/* --- AREA BINGKAI FOTO PROFIL --- */
+.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    padding: 20px;
+    border-radius: 24px;
+    
+    /* 🌟 TRICK UTAMA: Memberikan efek pendaran cahaya neon cyan-biru lembut di belakang siluet baju Anda */
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        0 0 50px rgba(56, 189, 248, 0.15); 
+        
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     position: relative;
+    overflow: hidden;
 }
 
-/* Dekorasi Cahaya di Background (Opsional untuk estetika) */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: -10%;
-    right: -10%;
-    width: 400px;
+/* Mengatur Posisi dan Visual Gambar Transparan */
+.glass-card img {
+    width: 320px;
     height: 400px;
-    background: rgba(99, 102, 241, 0.15);
-    filter: blur(100px);
-    border-radius: 50%;
-    z-index: 1;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+    
+    /* Sentuhan kontras tipis agar warna kemeja putih Anda terlihat pop-up menonjol */
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3)) contrast(102%);
+    transition: all 0.5s ease;
 }
+
+/* --- EFEK AKSI SAAT DISOROT MOUSE (HOVER) --- */
+.glass-card:hover {
+    transform: translateY(-8px) rotate(1deg); /* Kartu melayang naik secara elegan */
+    border-color: rgba(56, 189, 248, 0.3); /* Garis tepi berubah warna menyala tipis */
+    
+    /* Pendaran cahaya neon di belakang foto otomatis menguat saat di-hover */
+    box-shadow: 
+        0 40px 70px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(56, 189, 248, 0.3);
+}
+
+.glass-card:hover img {
+    transform: scale(1.02); /* Foto Anda sedikit melakukan zoom-in halus */
+}
+
 
 .hero-left {
     max-width: 600px;
@@ -518,12 +522,20 @@ nav ul li a:hover{
     -webkit-text-fill-color: transparent;
 }
 
-/* Kontras Deskripsi yang Diperbaiki */
+/* --- PENYEMPURNAAN HIERARKI HERO DESC --- */
 .hero-desc {
     font-size: 1rem;
-    color: #cbd5e1; /* Warna abu-abu terang agar teks terbaca jelas */
+    color: #cbd5e1; 
     line-height: 1.6;
-    margin-bottom: 35px;
+    margin-bottom: 45px; /* ⚠️ Ditambah dari 35px ke 45px agar tombol di bawahnya memiliki jarak yang ideal */
+    min-height: 55px; 
+}
+
+/* Memastikan kursor berkedip tetap ada di ujung tulisan */
+.typing-text {
+    border-right: 2px solid #38bdf8;
+    padding-right: 4px;
+    animation: blinkCursor 0.7s step-end infinite;
 }
 
 /* --- TOMBOL MODERN --- */
@@ -1725,70 +1737,166 @@ nav ul li a:hover{
     }
 }
 
-/* --- B. PENGATURAN KHUSUS SMARTPHONE / LAYAR HP (Max 600px) --- */
+/* ==========================================================================
+   OPTIMIZED RESPONSIVE FOR SMARTPHONE (Max 600px)
+   ========================================================================== */
 @media (max-width: 600px) {
     
-    /* 1. TOMBOL NAVIGASI ORGANISASI (Kapsul Berjejer Menyamping) */
+    /* 1. TOMBOL NAVIGASI ORGANISASI */
     .organization-buttons {
-        flex-direction: row !important; /* Mencegah tombol menumpuk vertikal */
+        flex-direction: row !important;
         justify-content: center;
         align-items: center;
-        gap: 6px; /* Jarak antar tombol dipersempit agar muat */
+        gap: 5px;
         padding: 0 5px;
         width: 100%;
     }
 
     .organization-buttons button {
-        padding: 8px 10px; /* Ukuran kotak tombol diperkecil */
-        font-size: 0.78rem; /* Font mengecil agar teks tidak pecah baris */
-        flex: 1; /* Membagi ruang tombol sama rata secara adil */
+        padding: 6px 8px;
+        font-size: 0.7rem; /* Font mengecil agar teks organisasi muat dalam 1 baris */
+        flex: 1;
         text-align: center;
-        white-space: nowrap; /* Mencegah teks tertekuk ke bawah */
+        white-space: nowrap;
     }
 
-    /* 2. GALERI ORGANISASI (Tampil Ringkas 2 Kolom Menyamping) */
+    /* 2. GALERI ORGANISASI: SEKARANG MUAT 3 FOTO PER BARIS */
     .gallery.active {
-        grid-template-columns: repeat(2, 1fr) !important; /* Mengunci 2 foto per baris */
-        gap: 12px; /* Jarak dipersempit agar proporsional */
+        grid-template-columns: repeat(3, 1fr) !important; /* ⚠️ Diubah menjadi 3 kolom menyamping */
+        gap: 8px !important; /* Memperkecil jarak antar foto agar space lebih hemat */
         padding: 5px;
     }
 
     .gallery-item img {
-        height: 130px; /* Tinggi gambar dibatasi agar tidak raksasa */
+        height: 95px !important; /* Tinggi foto dikurangi agar tetap proporsional (tidak lonjong) */
     }
 
-    /* Lencana Judul Melayang Di Atas Foto */
+    /* Menyesuaikan Badge Judul Melayang agar Tetap Rapi di 3 Kolom */
     .gallery-title {
-        padding: 4px 10px;
-        font-size: 0.58rem; /* Mengecilkan teks melayang agar tidak menutupi foto */
-        bottom: 12px;
-        letter-spacing: 1px;
+        padding: 4px 6px;
+        font-size: 0.5rem; /* Mengecilkan ukuran font teks melayang */
+        bottom: 8px;
+        letter-spacing: 0.5px;
+        width: 85%; /* Membatasi lebar badge agar tidak luber keluar foto */
+        border-radius: 20px;
     }
 
-    /* 3. GRID TECH STACK / SKILLS CARD (Otomatis Tampil 2 Kolom) */
+    /* 3. SECTION SKILLS GRID: SEKARANG MUAT 3-4 KARTU PER BARIS */
+    /* Jika kartu skill Anda berisi ikon dan teks pendek, pakai 4 kolom di bawah ini */
     .skills-grid {
-        grid-template-columns: repeat(2, 1fr) !important; /* 2 Kartu skill per baris di HP */
-        gap: 12px !important;
+        grid-template-columns: repeat(4, 1fr) !important; /* ⚠️ Diubah menjadi 4 kolom menyamping */
+        gap: 8px !important;
     }
 
     .skill-card {
-        padding: 20px 15px !important; /* Mengurangi padding dalam agar hemat ruang */
-        border-radius: 16px !important; /* Melengkungkan sudut lebih tipis */
+        padding: 15px 5px !important; /* Mengurangi padding dalam agar kartu mengecil pas */
+        border-radius: 12px !important;
     }
 
-    /* 4. GRID SECTON PROJECT (Otomatis Tampil 2 Kolom) */
-    /* Pastikan nama kelas container pembungkus project Anda di HTML adalah .project-grid atau .project-container */
-    .project-grid, .project-container, .project-wrapper {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important; /* Mengunci 2 kartu project per baris */
-        gap: 12px !important;
+    /* Menyesuaikan ukuran konten di dalam kartu skill kecil */
+    .skill-card i, .skill-item i {
+        font-size: 1.4rem !important; /* Mengecilkan ukuran ikon teknologi */
+        margin-bottom: 5px;
     }
 
-    /* 5. GRID SECTION SERTIFIKAT (Otomatis Tampil 2 Kolom) */
-    /* Pastikan nama kelas container pembungkus sertifikat Anda di HTML adalah .certificate-grid atau .certificate-container */
-    .certificate-grid, .certificate-container, .certificate-wrapper {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important; /* Mengunci 2 kartu sertifikat per baris */
-        gap: 12px !important;
+    .skill-card span, .skill-item span {
+        font-size: 0.65rem !important; /* Teks nama teknologi mengecil pas */
     }
 }
+@media (max-width: 600px) {
+
+    /* ==========================================================================
+       PENGATURAN GRID PROJECT DI HP (MENJADI 2 KOLOM RAPI)
+       ========================================================================== */
+    
+    /* 1. Mengubah Kontainer Utama Project Menjadi 2 Kolom Menyamping */
+    /* Pastikan salah satu nama kelas di bawah ini sesuai dengan nama kelas pembungkus project Anda di HTML */
+    .project-grid, .project-container, .project-wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* Mengunci 2 project sejajar per baris */
+        gap: 12px !important; /* Memperkecil jarak antar kartu project agar hemat ruang */
+        padding: 10px !important;
+        width: 100%;
+    }
+
+    /* 2. Mengatur Ukuran Kartu Project Individual */
+    /* Ganti '.project-card' dengan nama kelas kartu individual project Anda di HTML */
+    .project-card, .project-item {
+        padding: 15px !important; /* Mengurangi padding dalam kartu agar hemat tempat */
+        border-radius: 16px !important; /* Sudut lengkung disesuaikan lebih tipis di HP */
+    }
+
+    /* 3. Mengatur Gambar Project Di Dalam Kartu */
+    .project-card img, .project-item img {
+        width: 100% !important;
+        height: 110px !important; /* Mengunci tinggi gambar project di HP agar tidak terlalu besar */
+        object-fit: cover !important; /* Mencegah gambar gepeng, otomatis terpotong rapi */
+        border-radius: 10px !important;
+    }
+
+    /* 4. Menyesuaikan Tipografi Teks di Dalam Kartu Project yang Mengecil */
+    .project-card h3, .project-item h2, .project-item h3 {
+        font-size: 1.1rem !important; /* Mengecilkan ukuran nama judul project (seperti 'Sistem Manajemen Gudang') */
+        margin-top: 12px !important;
+        margin-bottom: 6px !important;
+        line-height: 1.3 !important;
+    }
+
+    .project-card p, .project-item p {
+        font-size: 0.75rem !important; /* Mengecilkan teks deskripsi project agar pas */
+        line-height: 1.4 !important;
+    }
+
+    /* Badge Label Kategori (Seperti 'WEB DEVELOPMENT') */
+    .project-card .badge, .project-item .badge, .hero-left + div, [class*="badge"] {
+        padding: 4px 10px !important;
+        font-size: 0.65rem !important; /* Mengecilkan font badge kategori */
+        border-radius: 20px !important;
+    }
+}
+@media (max-width: 600px) {
+
+    /* ==========================================================================
+       PENGATURAN GRID SERTIFIKAT DI HP (DIKUNCI 4 KOLOM MENYAMPING)
+       ========================================================================== */
+    
+    /* 1. Memaksa Kontainer Utama Menjadi 4 Kolom Sejajar */
+    .certificate-grid, .certificate-container, .certificate-wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important; /* ⚠️ Dikunci menjadi 4 kolom per baris */
+        gap: 6px !important; /* Jarak antar kotak dibuat sekecil mungkin agar tidak luber */
+        padding: 5px !important;
+        width: 100%;
+    }
+
+    /* 2. Mengecilkan Ukuran Kotak Kartu Sertifikat */
+    .certificate-card, .certificate-item {
+        background: rgba(255, 255, 255, 0.02) !important;
+        border: 1px solid rgba(255, 255, 255, 0.06) !important;
+        padding: 4px !important; /* Padding super tipis agar area gambar maksimal */
+        border-radius: 8px !important;
+    }
+
+    /* 3. Mengunci Tinggi Gambar Sertifikat agar Pas di Layar HP */
+    .certificate-card img, .certificate-item img {
+        width: 100% !important;
+        height: 60px !important; /* Tinggi disesuaikan menjadi 60px agar proporsional di 4 kolom */
+        object-fit: contain !important; /* Gambar piagam utuh, tidak akan terpotong */
+        background: #ffffff; 
+        border-radius: 4px !important;
+    }
+
+    /* 4. Menyesuaikan Teks Judul di Bawah Gambar */
+    .certificate-card h3, .certificate-item h3, .certificate-item h4 {
+        font-size: 0.55rem !important; /* Ukuran font dibuat sangat kecil agar muat */
+        margin-top: 6px !important;
+        margin-bottom: 2px !important;
+        text-align: center;
+        line-height: 1.2 !important;
+        white-space: normal !important; /* Mengizinkan teks turun ke bawah jika terlalu panjang */
+        word-wrap: break-word !important; /* Memotong kata secara aman jika melebihi batas kotak */
+        color: #e2e8f0;
+    }
+}
+
+
